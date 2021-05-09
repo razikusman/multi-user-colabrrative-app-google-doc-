@@ -35,10 +35,6 @@ if (Meteor.isClient){
     });
 
     Template.header.helpers({
-        // HERE is another one for you - can you
-        // complete the template helper for the 'header' template
-        // called 'nickname' that
-        // returns the nickname from the Session variable?, if they have set it
         nickname:function(){
             var nickname = Session.get("nickname");
             return nickname;

@@ -1,36 +1,50 @@
 
-<body class="container">
-    <div>
-        {{>header}}
-    </div>
-    <div>
-        {{>nicknameForm}}
-    </div>
-    <div>
-        {{>clear}}
-    </div>
-    <div>
-        {{>messageList}}
-    </div>
-    <div>
-        {{>messageForm}}
+<body style="height: 600px; padding: 10px; overflow-y: hidden;">
+    
+    <div class="container">
+        <div class=" row" >
+            <div class="col-md-3" >
+                {{>header}}
+                {{>nicknameForm}}
+                
+            </div>
+    
+            <div class="col-md-9 " style="padding-left: 5px; ">
+    
+                <div  class="h-25 " 
+                style="height: 450px; width: 850px; padding-left: 5px; overflow-y: scroll; border:3px solid rgb(0, 169, 175);" >
+                    {{>messageList}}
+                
+                </div>
+    
+                <br>
+    
+                <div class="h-25 ">
+                    {{>messageForm}}
+                </div>
+            </div>
+            
+        </div>
     </div>
     
 </body>
 
 
 <template name="header">
-    <h1>Welcome to M-Instant {{nickname}}</h1>
+    Welcome to M-Instant => {{nickname}}
 </template>
 
 <!-- nick name form start -->
 <template name="nicknameForm ">
-    <div class="form-group">
+    
+    <div class="input-group mb-3">
         <label for="nickname-input">Nickname:</label>
-        <input type="text" class="form-control" id="nickname-input" placeholder="Type message here...">
+        <input type="text" class="form-control" id="nickname-input" placeholder="Type Nick name here..." aria-label="" aria-describedby="basic-addon1">
         <br>
-        <button type="submit" class="btn btn-success js-set-nickname ">Set my nickname!</button>
-    </div>
+        
+         <button class="btn btn-success js-set-nickname " type="submit" >Set my nickname!</button>
+          
+      </div>
 </template>
 <!-- nick name end -->
 
@@ -51,15 +65,9 @@
 <template name="messageForm">
     <div class="form-group">
         <label for="message-text-input">Message:</label>
-        <input type="text" class="form-control" id="message-text-input" placeholder="Type message here...">
-        <button type="submit" class="btn btn-primary js-save-message">Post!</button>
+        <textarea  type="text" class="form-control" id="message-text-input" placeholder="Type message here..."></textarea>
+        <button type="submit" class="btn btn-primary js-save-message">Post..!</button>
 
     </div>
 </template>
-<!-- msg frm end -->
 
-<template name="clear">
-    <div class="form-group">
-        <button type="submit" class="btn btn-danger js-clear-message">CLEAR!</button>
-    </div>
-</template>
