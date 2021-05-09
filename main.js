@@ -24,14 +24,25 @@ if (Meteor.isClient){
         }
     });
 
+    Template.messageForm.events({
+        // this event listener is triggered when they click on
+        // the post! button on the message form template
+
+        'click .js-clear-message':function(event){
+            sessionStorage.clear();
+
+        }
+    });
+
     Template.header.helpers({
         // HERE is another one for you - can you
         // complete the template helper for the 'header' template
         // called 'nickname' that
         // returns the nickname from the Session variable?, if they have set it
-        'click .js-set-nickname':function(){
-            var nickname = $('#nickname-input').val();
-            Session.set("nickname" , nickname);
+        nickname:function(){
+            var nickname = Session.get("nickname");
+            return nickname;
+            
         },
     });
     
