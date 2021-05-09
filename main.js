@@ -5,9 +5,7 @@ if (Meteor.isClient){
     Template.nicknameForm.events({
         'click .js-set-nickname':function(){
             var nickname = $('#nickname-input').val();
-            // HERE is where you come in -
-            // can you save the nickname onto the session?
-            // ... put something in here!
+            Session.set("nickname" , nickname);
         }
     });
 
@@ -31,11 +29,13 @@ if (Meteor.isClient){
         // complete the template helper for the 'header' template
         // called 'nickname' that
         // returns the nickname from the Session variable?, if they have set it
-        nickname:function(){
-            // put something in here...
+        'click .js-set-nickname':function(){
+            var nickname = $('#nickname-input').val();
+            Session.set("nickname" , nickname);
         },
     });
-
+    
+       
 
     Template.messageList.helpers({
         // this helper provides the list of messages for the
